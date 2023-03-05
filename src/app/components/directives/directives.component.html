@@ -1,0 +1,88 @@
+<div class="col-md-8 m-auto">
+  <h2 class="text-center">Binding i directives</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">Element</th>
+        <th scope="col">Descripció</th>
+        <th scope="col">Resultat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Binding</th>
+        <td>Mostrar un texto en resultado obtenido de un atributo llamado texto</td>
+        <td><strong>{{texto}}</strong></td>
+      </tr>
+      <tr>
+        <th scope="row">ngIf</th>
+        <td>Mostrar un texto en resultado si el valor de un atributo llamado 'mostrar' es verdadero</td>
+        <td ><strong>Texto a mostrar</strong></td>
+      </tr>
+      <tr>
+        <th scope="row">ngIf</th>
+        <td  >Mostrar/ocultar un texto en resultado al pulsar alternativamente el siguiente botón:&nbsp;&nbsp;<button type="button" (click)="mostrar = !mostrar"  class="btn btn-primary" >Mostrar/ocultar</button></td>
+        <td *ngIf="mostrar"><strong>{{frase}}</strong></td>
+      </tr>
+      <tr>
+        <th scope="row">ngFor</th>
+        <td>Mostrar en la columna resultado tantos colores como los que se encuentren en una propiedad de tipo array del componente y utilizando la directiva ngFor</td>
+        <td><li *ngFor="let color of colores;"  class="list-group-item">{{color}}</li></td>
+
+      </tr>
+      <tr>
+        <th scope="row">ngFor</th>
+        <td>Ahora además de los colores se mostrará el índice que ocupa cada uno de ellos dentro del array</td>
+        <td><li *ngFor="let color of colores; let i=index"  class="list-group-item">{{i}}.{{color}}</li></td>
+      </tr>
+      <tr>
+        <th scope="row">ngIf</th>
+        <td>Mostrar el texto 'Par' en la columna resultado si el valor de un atributo de la clase es par y impar en caso contrario</td>
+        <td *ngIf="numero % 2 == 0; then par1 else impar1"></td>
+        <ng-template #par1>
+          <span>par</span>
+          </ng-template>
+          <ng-template #impar1>
+          <span>Es impar</span>
+        </ng-template>
+
+      </tr>
+      <tr>
+        <th scope="row">ngIf</th>
+        <td>Mostrar el texto 'Par' en la columna resultado si el valor de un atributo de la clase es par y impar en caso contrario y, además, mostrar el número</td>
+        <td *ngIf="numero % 2 == 0; then par else impar"></td>
+          <ng-template #par>
+            <span>{{ numero }} Es par</span>
+            </ng-template>
+
+            <ng-template #impar>
+            <span>{{ numero }} Es impar</span> 
+          </ng-template>
+
+      </tr>
+      <tr>
+        <th scope="row">ngSwitch</th>
+        <td>Mostrar el dia de la semana en la caja resultado a partir del valor numérico de una propiedad de la clase</td>
+        <td [ngSwitch]="mensaje">
+          <strong *ngSwitchCase="'1'">Lunes</strong>
+          <strong *ngSwitchCase="'2'">Martes</strong>
+          <strong *ngSwitchCase="'3'">Miercules</strong>
+          <strong *ngSwitchCase="'4'">Jueves</strong>
+          <strong *ngSwitchCase="'5'">Viernes</strong>
+          <strong *ngSwitchCase="'6'">Sabado</strong>
+          <strong *ngSwitchCase="'7'">Domingo</strong>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">ngStyle</th>
+        <td>Mostrar un texto en la caja resultado con el font-size obtenido de un valor de una propiedad de la clase</td>
+        <td [ngStyle]="{'font-size': tam + 'px'}"><strong>Texto y tamaño</strong></td>
+      </tr>
+      <tr>
+        <th scope="row">ngClass</th>
+        <td>Añadir a la caja que se encuentra en la celda de resultado una class de boostrap a partir del valor de una propiedad del componente</td>
+        <td><div [ngClass]="alerta" class="alert" role="alert">{{alerta}}</div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

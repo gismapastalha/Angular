@@ -1,0 +1,34 @@
+<div class="col-md-8 m-auto">
+  <h2 class="text-center">Pipes</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">Pipe</th>
+        <th scope="col">Descripció</th>
+        <th scope="col">Resultat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Mayúsculas</th>
+        <td>Mostrar el texto contenido en una propiedad del componente todo en mayúsculas</td>
+        <td><strong>{{nombre | uppercase}}</strong></td>
+      </tr>
+      <tr>
+        <th scope="row">Decimales</th>
+        <td>Mostrar el número contenido en una propiedad del componente con máximo dos decimales incluso aunque no tenga ninguno</td>
+        <td><strong>{{PI | number:'1.0-3'}} </strong></td>
+      </tr>
+      <tr>
+        <th scope="row">Porcentaje</th>
+        <td>Mostrar el número contenido en una propiedad del componente en formato porcentaje</td>
+        <td><strong>{{ratio| percent}} </strong></td>
+      </tr>
+      <tr>
+        <th scope="row">Moneda</th>
+        <td>Mostrar el número contenido en una propiedad del componente en formato moneda</td>
+        <td><strong>{{sueldo| currency:'EUR':'symbol'}} </strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
